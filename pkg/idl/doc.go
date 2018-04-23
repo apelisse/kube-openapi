@@ -14,9 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-/*
-The IDL package describes comment directives that may be applied to API types.
-*/
+// The IDL package describes comment directives that may be applied to API types.
 package idl
 
 // ListType annotates a list to further describe its topology. It may
@@ -70,6 +68,8 @@ type ListType string
 // specified for this attribute must be a field, of a scalar type, of
 // the child structure (no nesting is supported).
 //
+// An example of how this can be used is shown in the ListType (map) example.
+//
 // Example:
 //  +listMapKey=name
 //
@@ -100,6 +100,18 @@ type ListMapKey string
 //  "x-kubernetes-map-type": "atomic"
 type MapType string
 
+// OpenAPIGen needs to be described.
+type OpenAPIGen string
+
+// Optional needs to be described.
+type Optional string
+
+// PatchStrategy needs to be described.
+type PatchMergeKey string
+
+// PatchStrategy needs to be described.
+type PatchStrategy string
+
 // StructType annotates a struct to further describe its topology. It may
 // have only one value: "atomic". Atomic means that the entire struct is
 // considered as a whole, rather than as distinct values.
@@ -122,3 +134,6 @@ type MapType string
 // Using this tag will generate the following OpenAPI extension:
 //  "x-kubernetes-struct-type": "atomic"
 type StructType string
+
+// Union is TBD.
+type Union string
