@@ -63,6 +63,20 @@ package idl
 //  "x-kubernetes-list-type": "set"
 type ListType string
 
+// ListMapKey annotates map lists by specifying the key used as the index of the map.
+//
+// This tag MUST only be used on lists that have the listType=map
+// attribute, or the generation step will fail. Also, the value
+// specified for this attribute must be a field, of a scalar type, of
+// the child structure (no nesting is supported).
+//
+// Example:
+//  +listMapKey=name
+//
+// Using this tag will generate the following OpenAPI extension:
+//  "x-kubernetes-list-map-key": "name"
+type ListMapKey string
+
 // MapType annotates a map to further describe its topology. It may
 // have only one value: "atomic". Atomic means that the entire map is
 // considered as a whole, rather than as distinct values.
