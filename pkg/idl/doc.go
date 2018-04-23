@@ -63,7 +63,7 @@ package idl
 //  "x-kubernetes-list-type": "set"
 type ListType string
 
-// MapType annotates a list to further describe its topology. It may
+// MapType annotates a map to further describe its topology. It may
 // have only one value: "atomic". Atomic means that the entire map is
 // considered as a whole, rather than as distinct values.
 //
@@ -85,3 +85,26 @@ type ListType string
 // Using this tag will generate the following OpenAPI extension:
 //  "x-kubernetes-map-type": "atomic"
 type MapType string
+
+// StructType annotates a struct to further describe its topology. It may
+// have only one value: "atomic". Atomic means that the entire struct is
+// considered as a whole, rather than as distinct values.
+//
+// By default, a struct will be considered as a set of distinct values that
+// can be updated individually. This default WILL NOT generate any
+// openapi extension, as this will also be interpreted as the default
+// behavior in the openapi definition.
+//
+// This tag MUST only be used on structs, or the generation step will fail.
+//
+// Atomic
+//
+// Example:
+//  +structType=atomic
+//
+// Atomic structs will be entirely replaced when updated. This tag may be
+// used on any struct.
+//
+// Using this tag will generate the following OpenAPI extension:
+//  "x-kubernetes-struct-type": "atomic"
+type StructType string
