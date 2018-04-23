@@ -62,3 +62,26 @@ package idl
 // Using this tag will generate the following OpenAPI extension:
 //  "x-kubernetes-list-type": "set"
 type ListType string
+
+// MapType annotates a list to further describe its topology. It may
+// have only one value: "atomic". Atomic means that the entire map is
+// considered as a whole, rather than as distinct values.
+//
+// By default, a map will be considered as a set of distinct values that
+// can be updated individually. This default WILL NOT generate any
+// openapi extension, as this will also be interpreted as the default
+// behavior in the openapi definition.
+//
+// This tag MUST only be used on maps, or the generation step will fail.
+//
+// Atomic
+//
+// Example:
+//  +mapType=atomic
+//
+// Atomic maps will be entirely replaced when updated. This tag may be
+// used on any map.
+//
+// Using this tag will generate the following OpenAPI extension:
+//  "x-kubernetes-map-type": "atomic"
+type MapType string
