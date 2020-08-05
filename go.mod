@@ -29,6 +29,6 @@ require (
 	k8s.io/gengo v0.0.0-20190128074634-0689ccc1d7d6
 	k8s.io/klog v1.0.0 // indirect
 	k8s.io/klog/v2 v2.0.0-rc.1
-	sigs.k8s.io/structured-merge-diff/v3 v3.0.0-20200116222232-67a7b8c61874
+	sigs.k8s.io/structured-merge-diff/v4 v4.0.1
 	sigs.k8s.io/yaml v1.1.0
 )
